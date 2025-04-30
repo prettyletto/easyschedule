@@ -1,0 +1,10 @@
+./tmp/
+
+./go.sum
+./go.mod
+
+./app.db
+
+./.air.toml
+
+
