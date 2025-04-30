@@ -1,10 +1,10 @@
-./tmp/
+/tmp/
 
-./go.sum
-./go.mod
+/go.sum
+/go.mod
 
-./app.db
+/app.db
 
-./.air.toml
+.air.toml
 
 
