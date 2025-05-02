@@ -2,6 +2,6 @@ CREATE TABLE IF NOT EXISTS users (
   id TEXT NOT NULL PRIMARY KEY,
   name TEXT NOT NULL,
   phone TEXT NOT NULL,
-  adress TEXT,
+  address TEXT,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

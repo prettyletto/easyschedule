@@ -16,6 +16,7 @@ type Server struct {
 func New(addr string, db *sqlx.DB) *Server {
 
 	mux := http.NewServeMux()
+	RegisterRoutes(mux, db)
 
 	return &Server{httpServer: &http.Server{
 		Addr:    addr,
