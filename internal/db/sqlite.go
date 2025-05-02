@@ -23,6 +23,7 @@ func Init() *sqlx.DB {
 		log.Fatalf("Failed to connect with the DataBase: %v", err)
 	}
 	log.Println("DataBase connected successfully")
+	RunMigrations("app.db", "/Projects/easychedule/db/migrations/")
 
 	return DB
 }

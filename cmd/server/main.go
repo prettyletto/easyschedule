@@ -8,7 +8,7 @@ import (
 	"syscall"
 	"time"
 
-	database "github.com/prettyletto/easyschedule/db"
+	database "github.com/prettyletto/easyschedule/internal/db"
 	"github.com/prettyletto/easyschedule/internal/server"
 )
 
