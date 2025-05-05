@@ -17,4 +17,6 @@ func RegisterRoutes(mux *http.ServeMux, db *sqlx.DB) {
 
 	mux.HandleFunc("POST /users", userHandler.CreateUserHandler)
 	mux.HandleFunc("GET /users", userHandler.GetAllUsers)
+	mux.HandleFunc("PUT /users/{id}", userHandler.UpdateUserHandler)
+	mux.HandleFunc("DELETE /users/{id}", userHandler.DeleteUserHandler)
 }

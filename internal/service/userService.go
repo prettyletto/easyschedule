@@ -8,6 +8,8 @@ import (
 type UserService interface {
 	CreateUser(user *models.User) error
 	ListAllUsers() ([]models.User, error)
+	UpdateUser(newUser *models.User) (*models.User, error)
+	DeleteUser(id string) error
 }
 
 type userService struct {
@@ -22,6 +24,16 @@ func (s *userService) CreateUser(user *models.User) error {
 	user.GenerateId()
 
 	return s.repo.SaveUser(user)
+}
+
+func (s *userService) UpdateUser(newUser *models.User) (*models.User, error) {
+
+	return s.repo.UpdateUser(newUser)
+}
+
+func (s *userService) DeleteUser(id string) error {
+
+	return s.repo.RemoveUser(id)
 }
 
 func (s *userService) ListAllUsers() ([]models.User, error) {
