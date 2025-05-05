@@ -12,13 +12,14 @@ type UserRepository interface {
 	FindAllUsers() ([]models.User, error)
 	UpdateUser(newUser *models.User) (*models.User, error)
 	RemoveUser(id string) error
+	UserExistsById(id string) (bool, error)
 }
 
 type userRepository struct {
 	database *sqlx.DB
 }
 
-func New(database *sqlx.DB) UserRepository {
+func NewUserRepo(database *sqlx.DB) UserRepository {
 	return &userRepository{database: database}
 }
 
@@ -82,4 +83,10 @@ func (r *userRepository) FindAllUsers() ([]models.User, error) {
 	}
 
 	return users, nil
+}
+
+func (r *userRepository) UserExistsById(id string) (bool, error) {
+	var exists bool
+	err := r.database.QueryRow("SELECT EXISTS(SELECT 1 FROM users WHERE id = ?)", id).Scan(&exists)
+	return exists, err
 }
