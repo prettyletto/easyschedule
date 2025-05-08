@@ -13,7 +13,7 @@ type AppointmentHandler struct {
 	service service.AppointmentService
 }
 
-func NewAppointmentService(appointmentService service.AppointmentService) *AppointmentHandler {
+func NewAppointmentHandler(appointmentService service.AppointmentService) *AppointmentHandler {
 	return &AppointmentHandler{service: appointmentService}
 }
 
